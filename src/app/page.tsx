@@ -23,14 +23,25 @@ export default function Home() {
       <DesktopNav />
       <div className="h-3/4 grid grid-cols-4 grid-flow-row gap-4 pt-[20%] md:pt-[6rem] lg:max-h-fit">
         {
-          gridDesign.map((innerArr, id) => innerArr.map((elem, idx) => (<button onClick={() => setIsModalOpen(true)} tabIndex={0} type="button" data-modal-target="default-modal" data-modal-toggle="default-modal" className={elem ? $blobClassName : 'invisible'} key={`${id}-${idx}`}>{elem}</button>)))
+          gridDesign.map((innerArr, id) => innerArr.map((elem, idx) => (
+            <button
+              onClick={() => setIsModalOpen(!isModalOpen)}
+              tabIndex={isModalOpen ? -1 : 0}
+              type="button"
+              data-modal-target="default-modal" data-modal-toggle="default-modal"
+              className={elem ? $blobClassName : 'invisible'}
+              key={`${id}-${idx}`}
+            >
+              {elem}
+            </button>
+          )))
         }
       </div>
       {
         isModalOpen && (
           <Modal
             title="CURRENT BUTTON CLICK"
-            onClose={() => setIsModalOpen(false)}
+            onClose={() => setIsModalOpen(!isModalOpen)}
           >
             <p>Content Coming Soon.</p>
           </Modal>)
