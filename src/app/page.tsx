@@ -1,9 +1,11 @@
-// import Link from "next/link";
+'use client';
+import { useState } from "react";
+
 import DesktopNav from "./components/navigation/desktop";
-import Modal from "./components/modal";
+import { Modal } from "./components/modal";
 
 export default function Home() {
-
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const gridDesign = [
     [0, "about", "blogs", "home"],
     [0, "social", "interviews", 0],
@@ -21,10 +23,18 @@ export default function Home() {
       <DesktopNav />
       <div className="h-3/4 grid grid-cols-4 grid-flow-row gap-4 pt-[20%] md:pt-[6rem] lg:max-h-fit">
         {
-          gridDesign.map((innerArr, id) => innerArr.map((elem, idx) => (<button tabIndex={0} type="button" data-modal-target="default-modal" data-modal-toggle="default-modal" className={elem ? $blobClassName : 'invisible'} key={`${id}-${idx}`}>{elem}</button>)))
+          gridDesign.map((innerArr, id) => innerArr.map((elem, idx) => (<button onClick={() => setIsModalOpen(true)} tabIndex={0} type="button" data-modal-target="default-modal" data-modal-toggle="default-modal" className={elem ? $blobClassName : 'invisible'} key={`${id}-${idx}`}>{elem}</button>)))
         }
       </div>
-      <Modal />
+      {
+        isModalOpen && (
+          <Modal
+            title="CURRENT BUTTON CLICK"
+            onClose={() => setIsModalOpen(false)}
+          >
+            <p>Content Coming Soon.</p>
+          </Modal>)
+      }
     </main>
   );
 }
