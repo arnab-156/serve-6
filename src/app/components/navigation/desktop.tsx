@@ -12,7 +12,7 @@ const DesktopNav = () => {
                 About
             </Link>
             <Link className={$btnclassName} href="#blogs">
-                Blog
+                Blogs
             </Link>
             <Link className={$btnclassName} href="#resources">
                 Resources
