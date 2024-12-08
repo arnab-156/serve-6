@@ -13,7 +13,7 @@ export default function Home() {
     ["contact", "resources", 0, 0],
   ];
 
-  const $blobClassName = `block bg-black rounded-full scale-x-90 scale-y-90 p-2 md:p-4 hover:scale-100 transition delay-100 duration-700 ease-in-out w-[25vw] h-[25vw] lg:max-h-[25vh] lg:max-w-[25vh] content-center hover:text-white focus:text-white focus:shadow-2xl focus:shadow-indigo-500/50`;
+  const $blobClassName = `block bg-black rounded-full scale-x-90 scale-y-90 p-2 md:p-4 hover:scale-100 transition delay-100 duration-700 ease-in-out w-[25vw] h-[25vw] lg:max-h-[25vh] lg:max-w-[25vh] content-center hover:text-white focus:text-white focus:shadow-2xl focus:shadow-indigo-500/50 btnAnimation`;
 
   const handleOnClick = (isOpen: boolean, title: string | number) => {
     if (typeof title === 'string') {
@@ -21,10 +21,6 @@ export default function Home() {
     }
     setIsModalOpen(!isOpen);
   };
-
-  // modal component is needed. 1. right now simple open close with click.
-  // based on input, finds from library and shows modal.
-
 
   return (
     <main className="h-screen m-auto">
