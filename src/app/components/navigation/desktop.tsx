@@ -19,7 +19,7 @@ const DesktopNav: NextPage<NavProps> = ({ isModalOpen, func }) => {
             {
 
                 itemList.map((item, id) => (<button
-                    onClick={() => func(isModalOpen, item)}
+                    onClick={() => func(isModalOpen, item.toLowerCase())}
                     tabIndex={isModalOpen ? -1 : 0}
                     type="button"
                     className={$btnclassName}

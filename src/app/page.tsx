@@ -4,6 +4,9 @@ import { useState } from "react";
 import DesktopNav from "./components/navigation/desktop";
 import { Modal } from "./components/modal";
 import { Contact } from "./components/contact";
+import { About } from "./components/about";
+import { Blogs } from "./components/blogs";
+import { Resources } from "./components/resources";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -25,6 +28,21 @@ export default function Home() {
       setModalTitle(title);
     }
     setIsModalOpen(!isOpen);
+  };
+
+  const showContent = (title: string) => {
+    switch (title) {
+      case 'about':
+        return (<About />);
+      case 'blogs':
+        return (<Blogs />);
+      case 'contact':
+        return (<Contact />);
+      case 'resources':
+        return (<Resources />);
+      case 'default':
+        return (<Contact />);
+    }
   };
 
   return (
@@ -52,8 +70,9 @@ export default function Home() {
             title={modalTitle}
             onClose={() => setIsModalOpen(false)}
           >
-            <p>Content Coming Soon.</p>
-            <Contact />
+            {
+              showContent(modalTitle)
+            }
           </Modal>)
       }
     </main>
