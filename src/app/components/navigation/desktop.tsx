@@ -7,7 +7,8 @@ interface NavProps {
 };
 
 const DesktopNav: NextPage<NavProps> = ({ isModalOpen, func }) => {
-    const $btnclassName = "flex justify-center space-around items-center p-2 m-2 h-10 hover:underline rounded-md";
+    const $btnclassName = `flex justify-center space-around 
+    items-center p-2 m-2 h-10 hover:underline rounded-md decoration-indigo-500 focus:border-s-indigo-600`;
 
     const itemList: Array<string> = ["About", "Blogs", "Resources", "Contact"];
     return (
@@ -18,7 +19,7 @@ const DesktopNav: NextPage<NavProps> = ({ isModalOpen, func }) => {
             {
 
                 itemList.map((item, id) => (<button
-                    onClick={() => func(isModalOpen, item)}
+                    onClick={() => func(isModalOpen, item.toLowerCase())}
                     tabIndex={isModalOpen ? -1 : 0}
                     type="button"
                     className={$btnclassName}
