@@ -7,7 +7,8 @@ interface NavProps {
 };
 
 const DesktopNav: NextPage<NavProps> = ({ isModalOpen, func }) => {
-    const $btnclassName = "flex justify-center space-around items-center p-2 m-2 h-10 hover:underline rounded-md";
+    const $btnclassName = `flex justify-center space-around 
+    items-center p-2 m-2 h-10 hover:underline rounded-md decoration-indigo-500 focus:border-s-indigo-600`;
 
     const itemList: Array<string> = ["About", "Blogs", "Resources", "Contact"];
     return (
