@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-
 import DesktopNav from "./components/navigation/desktop";
 import { Modal } from "./components/modal";
 import { Contact } from "./components/contact";
@@ -17,10 +16,11 @@ export default function Home() {
     ["contact", "resources", 0, 0],
   ];
 
-  const $blobClassName = `block bg-black rounded-full scale-x-90 scale-y-90 p-2 md:p-4 
-  hover:scale-100 transition delay-100 duration-700 ease-in-out 
-  w-[25vw] h-[25vw] lg:max-h-[25vh] lg:max-w-[25vh] content-center 
-  hover:text-white focus:text-white focus:shadow-2xl focus:shadow-indigo-500/50 hover:shadow-indigo-500/50 hover:shadow-2xl
+  const $blobClassName = `block bg-black rounded-full scale-x-90 scale-y-90 p-2 md:p-4 font-black 
+  hover:scale-100 focus:scale-100 transition delay-100 duration-700 ease-in-out capitalize 
+  w-[25vw] h-[25vw] lg:max-h-[25vh] lg:max-w-[25vh] content-center focus:text-4xl hover:text-4xl
+  text-transparent hover:text-white focus:text-white focus:shadow-2xl focus:shadow-indigo-500/50 
+  hover:shadow-indigo-500/50 hover:shadow-2xl
   btnAnimation`;
 
   const handleOnClick = (isOpen: boolean, title: string | number) => {
@@ -59,7 +59,7 @@ export default function Home() {
               className={elem ? $blobClassName : 'invisible'}
               key={`${id}-${idx}`}
             >
-              {elem}
+              <span className="hover:underline focus:underline">{elem}</span>
             </button>
           )))
         }
